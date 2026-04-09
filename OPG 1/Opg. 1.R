@@ -30,7 +30,6 @@ con <- dbConnect(
   password = "OttoRehagel123456789Long2026!"
 )
 
-passes_med_xy <- readRDS("passes_med_xy.rds")
 shots <- readRDS("shots.rds")
 matches301 <- readRDS("matches301.rds")
 players <- readRDS("players.rds")
