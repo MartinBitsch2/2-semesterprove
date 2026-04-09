@@ -2,7 +2,7 @@
 # Analyse af afleveringer, skud og possession
 # Mænd vs. kvinder
 # =========================================================
-
+load("fodbold_data.RData")
 library(dplyr)
 
 # =========================================================
