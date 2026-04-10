@@ -4,7 +4,8 @@
 # Genskaber alle centrale datasæt til freeze-frame analysen
 # =========================================================
 
-source("util.R")
+#source("util.R")
+load("fodbold_data.RData")
 
 library(dplyr)
 library(ggplot2)
@@ -13,31 +14,31 @@ library(scales)
 # ---------------------------------------------------------
 # 1. Hent kampe
 # ---------------------------------------------------------
-AllMatches <- getAllMatches()
+#AllMatches <- getAllMatches()
 
 # Kvinder: UEFA Euro 2022
-MatchesWomen <- AllMatches %>%
-  filter(competition.competition_id == 53)
+#MatchesWomen <- AllMatches %>%
+#  filter(competition.competition_id == 53)
 
-MatchesWomen2022 <- MatchesWomen %>%
-  filter(match_date >= as.Date("2022-07-06"))
+#MatchesWomen2022 <- MatchesWomen %>%
+#  filter(match_date >= as.Date("2022-07-06"))
 
-Match_Id_Women <- MatchesWomen2022$match_id
+#Match_Id_Women <- MatchesWomen2022$match_id
 
 # Mænd: UEFA Euro 2024
-MatchesMen <- AllMatches %>%
-  filter(competition.competition_id == 55)
+#MatchesMen <- AllMatches %>%
+#  filter(competition.competition_id == 55)
 
-MatchesMen2024 <- MatchesMen %>%
-  filter(match_date >= as.Date("2024-06-14"))
+#MatchesMen2024 <- MatchesMen %>%
+#  filter(match_date >= as.Date("2024-06-14"))
 
-Match_Id_Men <- MatchesMen2024$match_id
+#Match_Id_Men <- MatchesMen2024$match_id
 
 # ---------------------------------------------------------
 # 2. Hent eventdata
 # ---------------------------------------------------------
-EventsWomen <- getAllEventsMultipleMatches(Match_Id_Women, gender = "f")
-EventsMen   <- getAllEventsMultipleMatches(Match_Id_Men,   gender = "m")
+#EventsWomen <- getAllEventsMultipleMatches(Match_Id_Women, gender = "f")
+#EventsMen   <- getAllEventsMultipleMatches(Match_Id_Men,   gender = "m")
 
 # ---------------------------------------------------------
 # 3. Lav shot-datasæt
