@@ -30,14 +30,15 @@ con <- dbConnect(
   password = "OttoRehagel123456789Long2026!"
 )
 
+passes_med_xy <- readRDS("passes_med_xy.rds")
 shots <- readRDS("shots.rds")
-matches301 <- readRDS("matches301.rds")
 players <- readRDS("players.rds")
 common2425 <- readRDS("common2425.rds")
 poss2425 <- readRDS("poss2425.rds")
-secondary <- readRDS("assist.rds")
 teams <- readRDS("teams.rds")
 matchdetail <- readRDS("matchdetail.rds")
+
+secondary <- dbGetQuery(con, "SELECT * FROM superliga2.wyscout_matchevents_secondarytype;")
 
 ##########################################################################################################################################
 # 1. Konstanter
