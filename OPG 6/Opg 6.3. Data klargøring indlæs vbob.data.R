@@ -1,4 +1,3 @@
-###### vbob, måske ny?
 # ============================================================
 # OPGAVE 6.3 - CSV VERSION (OPDATERET SAMLET KODE)
 # ============================================================
@@ -15,7 +14,8 @@ library(stringr)
 # 1) LOAD DATA
 # ------------------------------------------------------------
 
-csv <- read_csv("vbob.csv", col_names = FALSE, show_col_types = FALSE)
+csv <- read_csv("vbob.csv", col_names = FALSE, show_col_types = FALSE) #find den på nedenstående link
+#https://erhvervsakademikbenhavn.sharepoint.com/sites/cph-Lyngby/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fcph%2DLyngby%2FShared%20Documents%2F4%2E%20Indhold%20%26%20Niveau%2FDAT%2FDAL%2F%C3%85rgang%20Efter%C3%A5ret%202025%2F2%2E%20semester%2FDALEksamenF26%2FEksamenF26&p=true&ga=1
 meta <- fromJSON("vbob-meta.json", simplifyVector = FALSE)
 
 names(csv)[1:2] <- c("frame", "time")
@@ -605,7 +605,7 @@ space_plot_top <- ggplot(
     axis.title.x = element_text(size = 13, face = "bold"),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
-    plot.margin = margin(10, 40, 10, 10)
+    plot.margin = ggplot2::margin(10, 40, 10, 10) # <--- Løsningen er her
   ) +
   expand_limits(y = max(plot_table$mean_area, na.rm = TRUE) * 1.12)
 
@@ -646,11 +646,13 @@ space_plot_top <- ggplot(
     x = NULL,
     y = expression("Gennemsnitligt areal (m"^2*")")
   ) +
-  expand_limits(y = max(plot_table$mean_area) * 1.12) +
+  # Tilføjet na.rm = TRUE for at undgå fejl ved NA-værdier
+  expand_limits(y = max(plot_table$mean_area, na.rm = TRUE) * 1.12) +
   theme_minimal(base_size = 14) +
   theme(
     plot.title = element_text(size = 24, face = "bold", hjust = 0),
-    plot.subtitle = element_text(size = 15, margin = margin(b = 15)),
+    # FØRSTE RETTELSE: ggplot2:: tilføjet
+    plot.subtitle = element_text(size = 15, margin = ggplot2::margin(b = 15)), 
     axis.text.y = element_text(size = 14, face = "bold"),
     axis.text.x = element_text(size = 12),
     axis.title.x = element_text(size = 15, face = "bold"),
@@ -659,7 +661,8 @@ space_plot_top <- ggplot(
     panel.grid.major.x = element_line(color = "grey85", linewidth = 0.5),
     plot.background = element_rect(fill = "#f7f7f7", color = NA),
     panel.background = element_rect(fill = "#f7f7f7", color = NA),
-    plot.margin = margin(15, 50, 15, 15)
+    # ANDEN RETTELSE: ggplot2:: tilføjet
+    plot.margin = ggplot2::margin(15, 50, 15, 15) 
   )
 
 print(space_plot_top)
