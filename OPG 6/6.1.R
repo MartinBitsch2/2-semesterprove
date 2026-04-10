@@ -1,6 +1,7 @@
 
 # OPGAVE 6.1 – TOP 10 + SPILLERPROFIL
 
+women_events <- readRDS("women_events.rds")
 
 # Pakker
 library(dplyr)
@@ -81,3 +82,4 @@ alle_scorere
 
 # 8. Tjek nr. 1
 alle_scorere[1, ]
+
