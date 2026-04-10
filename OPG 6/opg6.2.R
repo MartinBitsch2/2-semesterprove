@@ -1,4 +1,6 @@
 
+women_events <- readRDS("women_events.rds")
+
 # OPGAVE 6.2
 # Logisk positivisme i fodbold
 # Formål:
