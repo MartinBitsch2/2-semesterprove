@@ -3,20 +3,21 @@
 # =========================================================
 # Inden man kører det her, så er der en dataframe/funktion der hedder ff_men_1
 # Den bliver først kører igennem i "Opg. 5.2 Freeze Frames Cases. 4 styks.R"
-source("util.R")
+#source("util.R")
 
 library(ggplot2)
 library(dplyr)
+ff_men_1 <- readRDS("ff_men_1.rds")
 
 # =========================================================
 # 1. Udtræk af skuddata
 # =========================================================
 
-ShotsMen <- EventsMen %>%
-  filter(type.name == "Shot")
+#ShotsMen <- EventsMen %>%
+#  filter(type.name == "Shot")
 
-ShotsWomen <- EventsWomen %>%
-  filter(type.name == "Shot")
+#ShotsWomen <- EventsWomen %>%
+#  filter(type.name == "Shot")
 
 names(ShotsMen)
 names(ShotsWomen)
@@ -30,16 +31,16 @@ ShotsWomen$shot.freeze_frame[[which(!sapply(ShotsWomen$shot.freeze_frame, is.nul
 # 2. Klargøring af freeze-frame data
 # =========================================================
 
-str(ff_men_1$location)
+#str(ff_men_1$location)
 
-ff_men_1$x <- sapply(ff_men_1$location, `[`, 1)
-ff_men_1$y <- sapply(ff_men_1$location, `[`, 2)
+#ff_men_1$x <- sapply(ff_men_1$location, `[`, 1)
+#ff_men_1$y <- sapply(ff_men_1$location, `[`, 2)
 
-ff_men_1[, c("player.name", "teammate", "x", "y")]
-names(ff_men_1)
-ff_men_1[, c("player", "teammate", "x", "y")]
+#ff_men_1[, c("player.name", "teammate", "x", "y")]
+##names(ff_men_1)
+#ff_men_1[, c("player", "teammate", "x", "y")]
 
-ShotsMen$location[[which(!sapply(ShotsMen$shot.freeze_frame, is.null))[1]]]
+#ShotsMen$location[[which(!sapply(ShotsMen$shot.freeze_frame, is.null))[1]]]
 
 
 # =========================================================
@@ -115,7 +116,7 @@ ff_men_1$in_triangle <- mapply(
   )
 )
 
-ff_men_1[, c("player", "teammate", "x", "y", "in_triangle")]
+#ff_men_1[, c("player", "teammate", "x", "y", "in_triangle")]
 
 sum(ff_men_1$teammate == FALSE & ff_men_1$in_triangle == TRUE)
 
@@ -160,16 +161,16 @@ mate_blockers < shooter_blockers
 # 9. Labels til visualisering
 # =========================================================
 
-ff_men_1$label <- ff_men_1$player$name
+#ff_men_1$label <- ff_men_1$player$name
 
 shooter_name <- ShotsMen$player.name[which(!sapply(ShotsMen$shot.freeze_frame, is.null))[1]]
 
-ff_men_1$label <- ff_men_1$player$name
-ff_men_1$label_clean <- ifelse(
-  ff_men_1$player$name == "İlkay Gündoğan",
-  "",
-  ff_men_1$label
-)
+#ff_men_1$label <- ff_men_1$player$name
+#ff_men_1$label_clean <- ifelse(
+#  ff_men_1$player$name == "İlkay Gündoğan",
+#  "",
+#  ff_men_1$label
+#)
 
 
 # =========================================================
