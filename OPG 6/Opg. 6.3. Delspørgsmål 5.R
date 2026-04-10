@@ -373,7 +373,7 @@ space_plot_whole_match <- ggplot(
   theme_minimal(base_size = 14) +
   theme(
     plot.title = element_text(size = 22, face = "bold"),
-    plot.subtitle = element_text(size = 13, margin = margin(b = 14)),
+    plot.subtitle = element_text(size = 13, margin = ggplot2::margin(b = 14)),
     axis.text.x = element_text(size = 11, face = "bold", lineheight = 0.95),
     axis.text.y = element_text(size = 11),
     axis.title.x = element_text(size = 14, face = "bold"),
