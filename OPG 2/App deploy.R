@@ -21,7 +21,8 @@ app_files <- c(
   "roc_data.rds",
   "coef_data.rds",
   "cm_glm_unweighted.rds",
-  "brondby logo.png"
+  "brondby logo.png",
+  "women_events.rds"
 )
 
 missing_files <- app_files[!file.exists(file.path(app_dir, app_files))]
