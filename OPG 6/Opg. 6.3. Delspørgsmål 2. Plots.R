@@ -336,6 +336,8 @@ goal_sequence_plot_exam_final3 <- ggplot() +
     linewidth = 0.25
   ) +
   
+  # ... (resten af din kode ovenfor er fin) ...
+  
   scale_fill_manual(
     values = c(
       "Start" = "#2c7fb8",
@@ -355,7 +357,7 @@ goal_sequence_plot_exam_final3 <- ggplot() +
     legend.position = "bottom",
     legend.title = element_blank(),
     legend.text = element_text(size = 10.5, face = "bold"),
-    plot.margin = margin(10, 10, 10, 10)
+    plot.margin = ggplot2::margin(10, 10, 10, 10) # <--- Rettelsen er her
   )
 
 
