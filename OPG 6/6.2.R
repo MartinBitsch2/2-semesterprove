@@ -1,4 +1,5 @@
 
+women_events <- readRDS("women_events.rds")
 # OPGAVE 6.2 – LOGISK POSITIVISME
 
 
